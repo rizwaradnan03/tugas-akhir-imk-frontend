@@ -4,10 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./page/Home"
 import { Toaster } from "react-hot-toast"
 import Product from "./page/Product";
+import Navbar from "./components/navbar";
 
 const App = () => {
   return (
     <>
+    <Navbar />
       <BrowserRouter>
         <Routes>
           {/* Home route */}
