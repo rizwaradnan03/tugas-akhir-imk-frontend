@@ -7,7 +7,7 @@ const Category = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://f6c3-66-96-225-170.ngrok-free.app/category", {
+        const response = await axios.get("https://fc3f-66-96-225-170.ngrok-free.app/api/category", {
           headers: { "ngrok-skip-browser-warning": "true" },
         });
         console.log("Data dari Server:", response.data);

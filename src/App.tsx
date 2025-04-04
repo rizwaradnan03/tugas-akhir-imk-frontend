@@ -5,6 +5,7 @@ import Home from "./page/Home"
 import { Toaster } from "react-hot-toast"
 import Product from "./page/Product";
 import Navbar from "./components/navbar";
+import Checkout from "./page/Checkout";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/category" element={<Category/>}/>
           <Route path="/product" element={<Product/>}/>
           <Route path="/" element={<Home />} />
+          <Route path="/Checkout" element={<Checkout />} />
         </Routes>
       <Toaster position="top-center" reverseOrder={false} />
     </>
