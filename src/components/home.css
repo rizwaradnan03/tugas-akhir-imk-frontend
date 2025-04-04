@@ -1,0 +1,27 @@
+.nav-hover {
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+  }
+  
+  .nav-hover:hover {
+    color: #007bff; /* warna biru saat hover */
+    transform: scale(1.1); /* sedikit membesar */
+  }
+  
+  .nav-hover::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .nav-hover:hover::after {
+    width: 100%;
+  }
+  
