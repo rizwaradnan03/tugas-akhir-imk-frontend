@@ -1,50 +1,38 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { BsCart3 } from 'react-icons/bs'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
+import { BsCart3 } from 'react-icons/bs';
 
-const Navbar = () => {
-  const [cartCount, setCartCount] = useState(0) 
+const MyNavbar = () => {
+  const [cartCount, setCartCount] = useState(0);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
-      <div className="container-fluid">
-        <Link className="navbar-brand fw-bold" to="/">Beranda</Link>
+    <Navbar bg="light" expand="lg" className="shadow-sm">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="fw-bold">Beranda</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/category">Kategori</Nav.Link>
+            <Nav.Link as={Link} to="/product">Produk</Nav.Link>
+            <Nav.Link as={Link} to="/checkout">Checkout</Nav.Link>
+          </Nav>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav me-auto">
-            <Link className="nav-link" to="/category">Kategori</Link>
-            <Link className="nav-link" to="/product">Produk</Link>
-            <Link className="nav-link" to="/checkout">Checkout</Link>
-            {/* <Link className="nav-link" to="/masukan keranjang">masukan keranjang</Link> */}
-          </div>
-
-          {/* Ikon Keranjang */}
-          <div className="d-flex align-items-center">
-            <Link to="/cart" className="text-decoration-none position-relative">
-              <BsCart3 size={28} style={{ color: 'orange' }} />
+          <Nav>
+            <Nav.Link as={Link} to="/cart" className="position-relative">
+              <BsCart3 size={24} style={{ color: 'orange' }} />
               {cartCount > 0 && (
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <Badge bg="danger" pill className="position-absolute top-0 start-100 translate-middle">
                   {cartCount}
-                </span>
+                </Badge>
               )}
-            </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
-  )
-}
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
 
-export default Navbar
+export default MyNavbar;
