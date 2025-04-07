@@ -52,10 +52,10 @@ const Home = () => {
         {/* TEKS DI TENGAH COURASEL */}
         <div
           className="position-absolute top-50 start-50 translate-middle text-Dark text-center text-lg-start"
-          style={{ zIndex: 10  }} 
+          style={{ zIndex: 10 }}
         >
-          <h1 className="bg-dark bg-opacity-50 p-2 rounded fw ">
-            RIZKY SPORTS 
+          <h1 className="bg-white bg-opacity-50 p-2 rounded fw-bold ">
+            Menjual Peralatan Olahraga
           </h1>
         </div>
       </div>
@@ -63,11 +63,11 @@ const Home = () => {
       {/* GAMBAR GAMBARAN */}
       <div className="mt-4 d-flex gap-2 flex-wrap">
         <img
-          src="https://img.freepik.com/premium-photo/basketball_172429-282.jpg?uid=R194703580&ga=GA1.1.1203588368.1739245046&semt=ais_hybrid&w=740"
-          width={200}
-          height={150}
-          className="object-fit-cover border rounded"
-          alt="Bola Basket"
+        // src="https://img.freepik.com/premium-photo/basketball_172429-282.jpg?uid=R194703580&ga=GA1.1.1203588368.1739245046&semt=ais_hybrid&w=740"
+        // width={200}
+        // height={150}
+        // className="object-fit-cover border rounded"
+        // alt="Bola Basket"
         />
       </div>
     </div>

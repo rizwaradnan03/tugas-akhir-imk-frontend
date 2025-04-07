@@ -27,6 +27,7 @@ const Navbar = () => {
             <Link className="nav-link" to="/category">Kategori</Link>
             <Link className="nav-link" to="/product">Produk</Link>
             <Link className="nav-link" to="/checkout">Checkout</Link>
+            {/* <Link className="nav-link" to="/masukan keranjang">masukan keranjang</Link> */}
           </div>
 
           {/* Ikon Keranjang */}

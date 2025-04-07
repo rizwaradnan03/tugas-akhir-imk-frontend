@@ -5,8 +5,8 @@
   }
   
   .nav-hover:hover {
-    color: #007bff; /* warna biru saat hover */
-    transform: scale(1.1); /* sedikit membesar */
+    color: #007bff; /*warna biru*/
+    transform: scale(1.1); /* merebuah besarnya kecilnya navbar */
   }
   
   .nav-hover::after {

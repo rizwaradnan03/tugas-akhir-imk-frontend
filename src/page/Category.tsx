@@ -47,7 +47,7 @@ const Category = () => {
           ) : (
             <tr>
               <td colSpan={5} className="text-center">
-                
+
               </td>
             </tr>
           )}
