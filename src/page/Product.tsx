@@ -7,7 +7,7 @@ const Product = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://f6c3-66-96-225-170.ngrok-free.app/product", {
+        const response = await axios.get("https://f775-66-96-225-158.ngrok-free.app/api/product", {
           headers: { "ngrok-skip-browser-warning": "true" },
         });
         console.log("Data dari Server:", response.data);

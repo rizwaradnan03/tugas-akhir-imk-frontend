@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const items = [
     {
@@ -13,12 +13,12 @@ const Home = () => {
     {
       src: "https://img.freepik.com/free-photo/view-football-shoes_23-2150885778.jpg?t=st=1744036502~exp=1744040102~hmac=33917e1382b2d6d08c7b019ad88e50a173927f19d7e66d55979f169ac03bbc2e&w=1380",
       title: "Sepatu Bola",
-      price: "Rp 500.000"
+      price: "Rp 450.000"
     },
     {
       src: "https://img.freepik.com/free-vector/soccer-jersey-pattern-design_23-2150294673.jpg?t=st=1744036728~exp=1744040328~hmac=22a4dac1ec84c2ca93a4d18fe5947cbc6c50be4399d223ff23fac6242d6dc3e1&w=1380",
       title: "Jersey Bola",
-      price: "Rp 800.000"
+      price: "Rp 500.000"
     },
     {
       src: "https://img.freepik.com/free-vector/handball-design_23-2147886950.jpg?t=st=1744036931~exp=1744040531~hmac=cfc94dc3f18bf9dffd1816ad3fbd445f58a22258e9c3f2dd6858f7fe27c33b64&w=900",
@@ -26,23 +26,23 @@ const Home = () => {
       price: "Rp 100.000"
     },
     {
-      src: "https://img.freepik.com/free-vector/male-female-swimwear-vector-illustrations-set-different-designs-bikinis-swimsuits-women-pants-underwear-men-swim-suits-beach-white-background-summer-fashion-concept_74855-26058.jpg?t=st=1744037218~exp=1744040818~hmac=6bbaf7706f140f81d2fb7089066c4cab2fa62a10b3f505b359fbbd9fe5ef9a53&w=1380",
-      title: "Satu Set Baju Renang",
-      price: "Rp 250.000"
+      src: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//105/MTA-33480986/no_brand_baju_renang_diving_wanita_lengan_panjang_new_model_full04_syonuxwb.jpg",
+      title: "Satu Set Baju Renang Anak",
+      price: "Rp 250.000 + mba nya"
     },
     {
       src: "https://img.freepik.com/free-vector/barbells-dumbbells-fitness-realistic-composition-with-isolated-image-dumbbell-with-heavy-load-vector-illustration_1284-66976.jpg?t=st=1744037327~exp=1744040927~hmac=042acdc258302b14c196f5dd2357f2c793098d37c6e77cb651b5e9a048198e0b&w=1380",
-      title: "Baerbel",
-      price: "Rp 500.000"
+      title: "Barbel",
+      price: "Rp 70.000"
     },
     {
       src: "https://img.freepik.com/premium-vector/badminton-racquet-racket-with-shuttlecock-vector-illustration_575828-243.jpg?w=900",
-      title: "satu set racket Samurai",
-      price: "Rp 600.000"
+      title: "satu set racket racketan",
+      price: "Rp 350.000"
     }
   ];
 
-  const handleItemClick = (item) => {
+  const handleItemClick = (item:any) => {
     navigate('/checkout', { state: item });
   };
 
