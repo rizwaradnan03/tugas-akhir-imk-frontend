@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast"
 import Product from "./page/Product";
 import Navbar from "./components/navbar";
 import Checkout from "./page/Checkout";
-// import Cart from"./page/Cart;
+
 
 const App = () => {
   return (
