@@ -16,13 +16,12 @@ const Checkout = () => {
 
   const handlePayment = async () => {
     if(!email || !product || !alamat){
-      toast.error("Email / Product harus diisi!")
+      toast.error("Email / Alamat / Product harus diisi!")
 
       return
     }
 
     const createToken = await CreateCheckout({email: email, product_id: product.id, alamat: alamat})
-    console.log("create tokenn", createToken)
 
     navigate(`/pay/${createToken.snap_token}`)
   };
