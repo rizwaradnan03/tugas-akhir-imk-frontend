@@ -1,66 +1,82 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { CreateCheckout } from '@/api/checkout';
+import { FetchFindOneProduct } from '@/api/product';
+import { ProductInterface } from '@/interfaces/schema-interface';
+import { formatPrice } from '@/lib/price';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Checkout = () => {
-  const { state } = useLocation();
-  const [paymentMethod, setPaymentMethod] = useState('BCA');
-  const [accountName, setAccountName] = useState('');
-  const [accountNumber, setAccountNumber] = useState('');
+  const {id} = useParams()
+  const [product, setProduct] = useState<ProductInterface | undefined>(undefined)
+  const [email, setEmail] = useState<string | undefined>(undefined)
+  const [alamat, setAlamat] = useState<string | undefined>(undefined)
 
-  const handlePayment = () => {
-    if (accountName && accountNumber) {
-      alert(`Pembayaran melalui Bank ${paymentMethod} berhasil atas nama ${accountName}`);
-      
+  const navigate = useNavigate()
 
-      //PEMBAYARAN//
-    } else {
-      alert('Silakan isi semua data pembayaran.');
+  const handlePayment = async () => {
+    if(!email || !product || !alamat){
+      toast.error("Email / Product harus diisi!")
+
+      return
     }
+
+    const createToken = await CreateCheckout({email: email, product_id: product.id, alamat: alamat})
+    console.log("create tokenn", createToken)
+
+    navigate(`/pay/${createToken.snap_token}`)
   };
+
+  const fetchData = async () => {
+    if(!id){
+      return
+    }
+    try {
+      const fetch = await FetchFindOneProduct({id: Number(id)})
+
+      setProduct(fetch)
+      console.log("fetzzz", fetch)
+    } catch (error: any) {
+      toast.error(error.message)
+    }
+  }
+
+  useEffect(() => {
+      fetchData()
+  }, [id])
 
   return (
     <div className="container mt-5">
       <h2>Checkout</h2>
-      {state ? (
+      {product ? (
         <div className="row mt-4">
           <div className="col-md-4">
-            <img src={state.src} alt={state.title} className="img-fluid rounded" />
+            <img src={product.image} alt={product.title} className="img-fluid rounded" />
           </div>
           <div className="col-md-8">
-            <h4>{state.title}</h4>
-            <p className="text-success fw-bold">{state.price}</p>
+            <h4>{formatPrice({price: Number(product.title)})}</h4>
+            <p className="text-success fw-bold">{product.price}</p>
 
             <hr />
             <h5>Metode Pembayaran</h5>
-            <select
-              className="form-select mb-3"
-              value={paymentMethod}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            >
-              <option value="BCA">Bank BCA</option>
-              <option value="Mandiri">Bank Mandiri</option>
-              <option value="BNI">Bank BNI</option>
-              <option value="BRI">Bank BRI</option>
-              <option value="DANA">Dana</option>
-            </select>
 
             <div className="mb-3">
-              <label className="form-label">Nama Pemilik Rekening</label>
+              <label className="form-label">Email Pembeli</label>
               <input
                 type="text"
                 className="form-control"
-                value={accountName}
-                onChange={(e) => setAccountName(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Nomor Rekening</label>
+              <label className="form-label">Alamat Pembeli</label>
               <input
                 type="text"
                 className="form-control"
-                value={accountNumber}
-                onChange={(e) => setAccountNumber(e.target.value)}
+                value={alamat}
+                onChange={(e) => setAlamat(e.target.value)}
               />
             </div>
 

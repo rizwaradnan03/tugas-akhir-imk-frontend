@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { ProductInterface } from '@/interfaces/schema-interface';
 
 const Product = () => {
-  const [data, setData] = useState<{ id: string, categoryId: string, image: string, title: string, price: string, createdAt: Date, updatedAt: Date }[]>([]);
+  const [data, setData] = useState<ProductInterface[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
