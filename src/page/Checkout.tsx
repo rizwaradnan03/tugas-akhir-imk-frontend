@@ -54,8 +54,8 @@ const Checkout = () => {
             <img src={product.image} alt={product.title} className="img-fluid rounded" />
           </div>
           <div className="col-md-8">
-            <h4>{formatPrice({price: Number(product.title)})}</h4>
-            <p className="text-success fw-bold">{product.price}</p>
+            <h4>{product.title}</h4>
+            <p className="text-success fw-bold">{formatPrice({price: product.price})}</p>
 
             <hr />
             <h5>Metode Pembayaran</h5>
