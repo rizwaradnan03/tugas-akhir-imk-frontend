@@ -26,7 +26,7 @@ const MyNavbar = () => {
           </Nav>
 
           <Nav className="align-items-center">
-            <Nav.Link as={Link} to="/cart" className="position-relative me-2">
+            <Nav.Link as={Link} to="/cart" className="position-relative">
               <BsCart3 size={24} style={{ color: 'orange' }} />
               {cartCount > 0 && (
                 <Badge bg="danger" pill className="position-absolute top-0 start-100 translate-middle">
@@ -36,7 +36,7 @@ const MyNavbar = () => {
             </Nav.Link>
 
             {/* Tombol Logout dengan warna merah */}
-            <Button variant="success" onClick={handleLogout}>
+            <Button variant="" onClick={handleLogout} className="ms-4">
               Logout
             </Button>
           </Nav>
