@@ -1,53 +1,61 @@
-import { Route, Routes } from "react-router-dom"
-import Category from "./page/Category"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from "./page/Home"
-import { Toaster } from "react-hot-toast"
+import { Route, Routes, useLocation } from "react-router-dom";
+import Category from "./page/Category";
+import Home from "./page/Home";
 import Product from "./page/Product";
-import Navbar from "./components/navbar";
+import Login from "./page/Login";
 import Checkout from "./page/Checkout";
-import { useEffect } from "react";
 import { Pay } from "./page/Pay";
+import Navbar from "./components/navbar";
+import { Toaster } from "react-hot-toast";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect } from "react";
+import Register from "./page/register"
 
 const App = () => {
+  const location = useLocation();
 
-  useEffect (() => {
-    const snapScript = import.meta.env.VITE_SNAP_SCRIPT
-    const clientKey = import.meta.env.VITE_CLIENT_KEY
+  useEffect(() => {
+    const snapScript = import.meta.env.VITE_SNAP_SCRIPT;
+    const clientKey = import.meta.env.VITE_CLIENT_KEY;
 
-    console.log("snap script", snapScript)
-    console.log("client script", clientKey)
+    console.log("snap script", snapScript);
+    console.log("client script", clientKey);
 
-    const script = document.createElement("script")
-    script.src = snapScript
-    script.setAttribute("data-client-key", clientKey)
-    script.async = true
+    const script = document.createElement("script");
+    script.src = snapScript;
+    script.setAttribute("data-client-key", clientKey);
+    script.async = true;
 
-    document.body.appendChild(script)
+    document.body.appendChild(script);
 
     return () => {
       if (script.parentNode) {
-        document.body.removeChild(script)
+        document.body.removeChild(script);
       }
-    }
-  }, [])
+    };
+  }, []);
+
+  // Daftar path yang tidak perlu menampilkan Navbar
+  const hideNavbar = ["/login", "/register"];
 
   return (
     <>
-      <Navbar />
+      {!hideNavbar.includes(location.pathname.toLowerCase()) && <Navbar />}
 
       <Routes>
-        {/* Home route */}
+        <Route path="/" element={<Home />} />
         <Route path="/category" element={<Category />} />
         <Route path="/product" element={<Product />} />
-        <Route path="/" element={<Home />} />
         <Route path="/checkout/:id" element={<Checkout />} />
         <Route path="/pay/:token" element={<Pay />} />
-        {/* <Route path="/Cart" elemnet={<Cart />}/> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        {/* <Route path="/cart" element={<Cart />} /> */}
       </Routes>
+
       <Toaster position="top-center" reverseOrder={false} />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

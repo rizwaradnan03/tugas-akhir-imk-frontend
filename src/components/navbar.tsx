@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Container, Badge, Button } from 'react-bootstrap';
 import { BsCart3 } from 'react-icons/bs';
 
 const MyNavbar = () => {
   const [cartCount, setCartCount] = useState(0);
+  const navigate = useNavigate();
 
-  // Fungsi untuk logout, bisa dihubungkan dengan sistem auth nanti
   const handleLogout = () => {
-    console.log("Logout clicked");
-    // Tambahkan logika logout di sini (misal hapus token, redirect, dll)
+    localStorage.removeItem("user");
+    navigate("/login");
   };
 
   return (
@@ -35,8 +35,7 @@ const MyNavbar = () => {
               )}
             </Nav.Link>
 
-            {/* Tombol Logout dengan warna merah */}
-            <Button variant="" onClick={handleLogout} className="ms-4">
+            <Button variant='' onClick={handleLogout} className="ms-4">
               Logout
             </Button>
           </Nav>
