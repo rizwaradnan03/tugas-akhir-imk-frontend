@@ -13,7 +13,7 @@ const Register = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => { //buat target ke Daftar
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (form.password !== form.confirmPassword) {
@@ -21,7 +21,6 @@ const Register = () => {
       return;
     }
 
-    // Simpan data ke localStorage (simulasi signup)
     localStorage.setItem("user", JSON.stringify({ username: form.username, password: form.password }));
     alert("Akun berhasil dibuat!");
     navigate("/Login");
@@ -30,12 +29,12 @@ const Register = () => {
   return (
     <div style={{ backgroundColor: "#00BFFF", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <div style={{ backgroundColor: "white", padding: "30px", borderRadius: "8px", width: "350px", boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}>
-        <h3 style={{ textAlign: "center", fontWeight: "bold", marginBottom: "20px" }}>SignUP</h3>
+        <h3 style={{ textAlign: "center", fontWeight: "bold", marginBottom: "20px" }}>Sign Up</h3>
         <form onSubmit={handleSubmit}>
-          <label>Buat Username</label>
+          <label>Email</label>
           <input
             type="text"
-            name="username"
+            name="enail"
             value={form.username}
             onChange={handleChange}
             className="form-control mb-2"

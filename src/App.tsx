@@ -2,14 +2,14 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Category from "./page/Category";
 import Home from "./page/Home";
 import Product from "./page/Product";
-import Login from "./page/Login";
+import Login from "./page/auth/Login";
 import Checkout from "./page/Checkout";
 import { Pay } from "./page/Pay";
 import Navbar from "./components/navbar";
 import { Toaster } from "react-hot-toast";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from "react";
-import Register from "./page/register"
+import Register from "./page/auth/Register"
 
 const App = () => {
   const location = useLocation();
@@ -35,7 +35,6 @@ const App = () => {
     };
   }, []);
 
-  // Daftar path yang tidak perlu menampilkan Navbar
   const hideNavbar = ["/login", "/register"];
 
   return (
