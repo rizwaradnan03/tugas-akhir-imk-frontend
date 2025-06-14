@@ -10,6 +10,7 @@ import { Toaster } from "react-hot-toast";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from "react";
 import Register from "./page/auth/Register"
+import { AdminDashboard } from "./page/admin/dashboard";
 
 const App = () => {
   const location = useLocation();
@@ -49,7 +50,13 @@ const App = () => {
         <Route path="/pay/:token" element={<Pay />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/cart" element={<Cart />} /> */}
+
+        <Route path="/admin/*" element={
+          <Routes>
+            <Route path="dashboard" element={<AdminDashboard />}></Route>
+          </Routes>
+        } />
+
       </Routes>
 
       <Toaster position="top-center" reverseOrder={false} />
