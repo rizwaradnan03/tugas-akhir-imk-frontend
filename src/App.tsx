@@ -11,6 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from "react";
 import Register from "./page/auth/Register"
 import { AdminDashboard } from "./page/admin/dashboard";
+import ProductList from "./page/auth/product/product-list";
+import ProductCreate from "./page/auth/product/product-create";
+import { ProductEdit } from "./page/auth/product/product-edit";
+import CategoryList from "./page/auth/category/category-list";
+import CategoryCreate from "./page/auth/category/category-create";
+import { CategoryEdit } from "./page/auth/category/category-edit";
 
 const App = () => {
   const location = useLocation();
@@ -54,6 +60,22 @@ const App = () => {
         <Route path="/admin/*" element={
           <Routes>
             <Route path="dashboard" element={<AdminDashboard />}></Route>
+
+            <Route path="category/*" element={
+              <Routes>
+                <Route index element={<CategoryList />} />
+                <Route path="create" element={<CategoryCreate />} />
+                <Route path=":id" element={<CategoryEdit />} />
+              </Routes>
+            } />
+            
+            <Route path="product/*" element={
+              <Routes>
+                <Route index element={<ProductList />} />
+                <Route path="create" element={<ProductCreate />} />
+                <Route path=":id" element={<ProductEdit />} />
+              </Routes>
+            } />
           </Routes>
         } />
 

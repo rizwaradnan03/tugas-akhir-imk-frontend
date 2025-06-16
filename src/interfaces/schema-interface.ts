@@ -7,3 +7,10 @@ export interface ProductInterface {
     created_at: Date;
     updated_at: Date;
 }
+
+export interface CategoryInterface{
+    id: number;
+    title: string;
+    created_at: Date;
+    updated_at: Date;
+}

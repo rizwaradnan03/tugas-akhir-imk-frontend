@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Navbar, Nav, Container, Badge, Button } from 'react-bootstrap';
+import { Navbar, Container, Badge, Button, NavLink, Nav } from 'react-bootstrap';
 import { BsCart3 } from 'react-icons/bs';
 
 const MyNavbar = () => {
@@ -20,20 +20,22 @@ const MyNavbar = () => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/category">Kategori</Nav.Link>
-            <Nav.Link as={Link} to="/product">Produk</Nav.Link>
-            <Nav.Link as={Link} to="/checkout">Checkout</Nav.Link>
+            <NavLink as={Link} to={localStorage.getItem("access_token") ? "/admin/category" : "/category"}>Kategori</NavLink>
+            <NavLink as={Link} to={localStorage.getItem("access_token") ? "/admin/product" : "/product"}>Produk</NavLink>
+            {localStorage.getItem("acccess_token") ? (
+              <NavLink as={Link} to="/checkout">Checkout</NavLink>
+            ) : null}
           </Nav>
 
           <Nav className="align-items-center">
-            <Nav.Link as={Link} to="/cart" className="position-relative">
+            <NavLink as={Link} to="/cart" className="position-relative">
               <BsCart3 size={24} style={{ color: 'orange' }} />
               {cartCount > 0 && (
                 <Badge bg="danger" pill className="position-absolute top-0 start-100 translate-middle">
                   {cartCount}
                 </Badge>
               )}
-            </Nav.Link>
+            </NavLink>
 
             <Button variant='' onClick={handleLogout} className="ms-4">
               Logout

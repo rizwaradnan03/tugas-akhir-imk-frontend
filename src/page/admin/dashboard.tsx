@@ -1,28 +1,26 @@
-import { Statistic } from "@/api/statistic"
-import { ProductInterface } from "@/interfaces/schema-interface"
-import { useEffect, useState } from "react"
-import toast from "react-hot-toast"
+import { Statistic } from "@/api/statistic";
+import { ProductInterface } from "@/interfaces/schema-interface";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export const AdminDashboard = () => {
-    const [payedAmount, setPayedAmount] = useState<number>(0)
-    const [products, setProducts] = useState<ProductInterface[]>([])    
+  const [payedAmount, setPayedAmount] = useState<number>(0);
+  const [products, setProducts] = useState<ProductInterface[]>([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const fetch = await Statistic()
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetch = await Statistic();
 
-                setPayedAmount(fetch.amount)
-                setProducts(fetch.products)
-            } catch (error) {
-                toast.error("Gagal fetch statistik")
-            }
-        }
+        setPayedAmount(fetch.amount);
+        setProducts(fetch.products);
+      } catch (error) {
+        toast.error("Gagal fetch statistik");
+      }
+    };
 
-        fetchData()
-    }, [])
-
-    console.log("Payed Amount : ", )
+    fetchData();
+  }, []);
 
   return (
     <div className="container mt-5">
@@ -54,5 +52,5 @@ export const AdminDashboard = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -31,10 +31,10 @@ const Login = () => {
       <div className="card p-4" style={{ width: '100%', maxWidth: '400px' }}>
         <h4 className="fw-bold text-center mb-3">Login</h4>
           <div className="mb-3">
-            <label htmlFor="username" className="form-label">
-              Username
+            <label htmlFor="email" className="form-label">
+              Email
             </label>
-            <input type="text" id="username" onChange={(e) => setEmail(e.target.value)} className="form-control" required />
+            <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} className="form-control" required />
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -44,9 +44,6 @@ const Login = () => {
           </div>
           <button onClick={() => handleSubmit()}  className="btn btn-primary w-100">
             Masuk
-          </button>
-          <button onClick={() => navigate('/register')} className="btn btn-info w-100 mt-2">
-            Gak Punya Akun? Yuk Klik Ini
           </button>
       </div>
     </div>
