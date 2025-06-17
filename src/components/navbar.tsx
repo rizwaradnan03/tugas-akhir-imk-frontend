@@ -25,6 +25,9 @@ const MyNavbar = () => {
             <NavLink as={Link} to="/admin/product">
               Produk
             </NavLink>
+            <NavLink as={Link} to="/admin/account">
+              Pusat Akun
+            </NavLink>
             <NavLink as={Link} to={localStorage.getItem("access_token") ? "/admin/checkout" : "/checkout"}>
               Checkout
             </NavLink>
@@ -33,7 +36,6 @@ const MyNavbar = () => {
           <Nav className="align-items-center ms-auto">
             <Button
             className={`btn ${localStorage.getItem("access_token") ? "btn-danger" : "btn-primary"}`}
-            // className="btn btn-danger"
               onClick={() =>
                 localStorage.getItem("access_token")
                   ? handleLogout()

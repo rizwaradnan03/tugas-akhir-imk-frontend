@@ -19,6 +19,8 @@ import CategoryCreate from "./page/admin/category/category-create";
 import { CategoryEdit } from "./page/admin/category/category-edit";
 import AdminCheckout from "./page/admin/checkout/checkout-list";
 import CheckoutDetail from "./page/admin/checkout/checkout-detail";
+import AccountList from "./page/admin/account/account-list";
+import { RegisterCreate } from "./page/admin/account/account-create";
 
 const App = () => {
   const location = useLocation();
@@ -83,6 +85,13 @@ const App = () => {
               <Routes>
                 <Route index element={<AdminCheckout />} />
                 <Route path="detail/:id" element={<CheckoutDetail />} />
+              </Routes>
+            } />
+
+            <Route path="account/*" element={
+              <Routes>
+                <Route index element={<AccountList />} />
+                <Route path="register" element={<RegisterCreate />} />
               </Routes>
             } />
           </Routes>

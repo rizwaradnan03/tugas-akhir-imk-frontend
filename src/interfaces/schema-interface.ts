@@ -27,3 +27,10 @@ export interface UserPaymentInterface {
     created_at: Date;
     updated_at: Date;
 }
+
+export interface UserInterface {
+    id: number;
+    email: string;
+    created_at: Date;
+    updated_at: Date;
+}
