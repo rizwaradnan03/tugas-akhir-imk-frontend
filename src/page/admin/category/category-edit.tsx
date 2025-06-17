@@ -39,7 +39,7 @@ export const CategoryEdit = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Tambah Kategori Baru</h2>
+      <h2>Ubah Kategori</h2>
       <div className="row">
         <Form.Group className="col-12 mb-3">
           <Form.Label>Nama Kategori</Form.Label>

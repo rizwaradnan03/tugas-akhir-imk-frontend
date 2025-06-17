@@ -11,12 +11,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from "react";
 import Register from "./page/auth/Register"
 import { AdminDashboard } from "./page/admin/dashboard";
-import ProductList from "./page/auth/product/product-list";
-import ProductCreate from "./page/auth/product/product-create";
-import { ProductEdit } from "./page/auth/product/product-edit";
-import CategoryList from "./page/auth/category/category-list";
-import CategoryCreate from "./page/auth/category/category-create";
-import { CategoryEdit } from "./page/auth/category/category-edit";
+import ProductList from "./page/admin/product/product-list";
+import ProductCreate from "./page/admin/product/product-create";
+import { ProductEdit } from "./page/admin/product/product-edit";
+import CategoryList from "./page/admin/category/category-list";
+import CategoryCreate from "./page/admin/category/category-create";
+import { CategoryEdit } from "./page/admin/category/category-edit";
+import AdminCheckout from "./page/admin/checkout/checkout-list";
+import CheckoutDetail from "./page/admin/checkout/checkout-detail";
 
 const App = () => {
   const location = useLocation();
@@ -74,6 +76,13 @@ const App = () => {
                 <Route index element={<ProductList />} />
                 <Route path="create" element={<ProductCreate />} />
                 <Route path=":id" element={<ProductEdit />} />
+              </Routes>
+            } />
+
+            <Route path="checkout/*" element={
+              <Routes>
+                <Route index element={<AdminCheckout />} />
+                <Route path="detail/:id" element={<CheckoutDetail />} />
               </Routes>
             } />
           </Routes>

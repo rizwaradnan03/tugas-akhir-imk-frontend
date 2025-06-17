@@ -63,7 +63,7 @@ export const ProductEdit = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Tambah Produk Baru</h2>
+      <h2>Ubah Produk</h2>
       <div className="row">
         <Form.Group className="col-4 mb-3">
           <Form.Label>Nama Produk</Form.Label>

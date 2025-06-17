@@ -14,3 +14,16 @@ export interface CategoryInterface{
     created_at: Date;
     updated_at: Date;
 }
+
+export interface UserPaymentInterface {
+    id: number;
+    order_id: number;
+    status: string;
+    email: string;
+    alamat: string;
+    product_id: number;
+    amount: number;
+    payment_method: string | null;
+    created_at: Date;
+    updated_at: Date;
+}

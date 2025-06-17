@@ -23,7 +23,7 @@ const Login = () => {
 
   return (
     <div className="vh-100 d-flex justify-content-center align-items-center" style={{ backgroundColor: '#00AEEF', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: '20px', left: '20px' }} className="d-flex align-items-center">
+      <div style={{ position: 'absolute', top: '20px', left: '20px' }} className="d-flex align-items-center" onClick={() => navigate('/')}>
         <img src="/bola.png" alt="logo" width={60} height={60} className="me-2" />
         <h4 className="text-white m-0 fw-bold">Selamat Datang</h4>
       </div>

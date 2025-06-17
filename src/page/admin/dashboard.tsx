@@ -1,11 +1,12 @@
 import { Statistic } from "@/api/statistic";
-import { ProductInterface } from "@/interfaces/schema-interface";
+import { CategoryInterface, ProductInterface } from "@/interfaces/schema-interface";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export const AdminDashboard = () => {
   const [payedAmount, setPayedAmount] = useState<number>(0);
   const [products, setProducts] = useState<ProductInterface[]>([]);
+  const [categories, setCategories] = useState<CategoryInterface[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +15,7 @@ export const AdminDashboard = () => {
 
         setPayedAmount(fetch.amount);
         setProducts(fetch.products);
+        setCategories(fetch.categories);
       } catch (error) {
         toast.error("Gagal fetch statistik");
       }
@@ -38,7 +40,7 @@ export const AdminDashboard = () => {
           <div className="card text-white bg-success shadow">
             <div className="card-body">
               <h5 className="card-title">Jumlah Produk</h5>
-              {/* <p className="card-text fs-4">{data.jumlah_produk}</p> */}
+              <p className="card-text fs-4">{products.length}</p>
             </div>
           </div>
         </div>
@@ -46,7 +48,7 @@ export const AdminDashboard = () => {
           <div className="card text-white bg-warning shadow">
             <div className="card-body">
               <h5 className="card-title">Jumlah Kategori</h5>
-              {/* <p className="card-text fs-4">{data.jumlah_kategori}</p> */}
+              <p className="card-text fs-4">{categories.length}</p>
             </div>
           </div>
         </div>
