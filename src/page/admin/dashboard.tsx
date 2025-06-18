@@ -1,12 +1,15 @@
 import { Statistic } from "@/api/statistic";
-import { CategoryInterface, ProductInterface } from "@/interfaces/schema-interface";
+import {
+  CategoryInterface,
+  ProductInterface,
+} from "@/interfaces/schema-interface";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export const AdminDashboard = () => {
   const [payedAmount, setPayedAmount] = useState<number>(0);
   const [products, setProducts] = useState<ProductInterface[]>([]);
-  const [categories, setCategories] = useState<CategoryInterface[]>([])
+  const [categories, setCategories] = useState<CategoryInterface[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,8 +34,10 @@ export const AdminDashboard = () => {
         <div className="col-md-4">
           <div className="card text-white bg-primary shadow">
             <div className="card-body">
-              <h5 className="card-title">Pembelian Hari Ini</h5>
-              <p className="card-text fs-4">Rp{payedAmount}</p>
+              <h5 className="card-title">Saldo Pembelian</h5>
+              <p className="card-text fs-4">
+                Rp {payedAmount.toLocaleString("id-ID")}
+              </p>
             </div>
           </div>
         </div>

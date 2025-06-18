@@ -44,7 +44,7 @@ const ProductList = () => {
             <tr key={item.id}>
               <td>{index + 1}</td>
               <td>{item.title}</td>
-              <td>Rp{item.price.toLocaleString()}</td>
+              <td>Rp{item.price.toLocaleString("id-ID")}</td>
               <td><Link to={`/admin/product/${item.id}`} className='btn btn-warning'>Edit</Link></td>
             </tr>
           ))}

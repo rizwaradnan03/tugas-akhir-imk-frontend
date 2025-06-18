@@ -1,6 +1,7 @@
 import { CreateCategory } from "@/api/category";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const CategoryCreate = () => {
@@ -9,10 +10,14 @@ const CategoryCreate = () => {
   const [nama, setNama] = useState("");
 
   const handleSubmit = async () => {
-
-    await CreateCategory({data: {title: nama}})
-
-    navigate("/admin/category");
+    try {
+      await CreateCategory({data: {title: nama}})
+  
+      toast.success("Berhasil membuat kategori!")
+      navigate("/admin/category");
+    } catch (error) {
+      toast.error("Gagal membuat kategori!") 
+    }
   };
 
   return (

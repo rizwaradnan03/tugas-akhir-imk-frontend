@@ -21,6 +21,7 @@ const ProductCreate = () => {
 
     await CreateProduct({data: {title: nama, image: image, stock: Number(stock), price: Number(harga), category_id: Number(kategoriId)}})
 
+    toast.success("Berhasil membuat produk!")
     navigate("/admin/product");
   };
 
