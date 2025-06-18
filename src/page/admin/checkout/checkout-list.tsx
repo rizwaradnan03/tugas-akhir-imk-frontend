@@ -44,7 +44,9 @@ const Checkout = () => {
               <td>{userPayment.email}</td>
               <td>{userPayment.alamat}</td>
               <td>{userPayment.amount}</td>
-              <td><Link to={`/admin/checkout/detail/${userPayment.id}`} className='btn btn-success'>Lihat</Link></td>
+              <td>
+                <Link to={`/admin/checkout/detail/${userPayment.id}`} className='btn btn-success'>Lihat</Link>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -24,6 +24,7 @@ export interface UserPaymentInterface {
     product_id: number;
     amount: number;
     payment_method: string | null;
+    is_shipped: number;
     created_at: Date;
     updated_at: Date;
 }

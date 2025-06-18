@@ -3,7 +3,7 @@ import { ProductInterface } from '@/interfaces/schema-interface';
 import { useEffect, useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ProductList = () => {
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ const ProductList = () => {
               <td>{index + 1}</td>
               <td>{item.title}</td>
               <td>Rp{item.price.toLocaleString()}</td>
-              <td><a href={`/admin/product/${item.id}`} className='btn btn-warning'>Edit</a></td>
+              <td><Link to={`/admin/product/${item.id}`} className='btn btn-warning'>Edit</Link></td>
             </tr>
           ))}
         </tbody>

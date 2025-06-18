@@ -19,3 +19,13 @@ export const FetchFindOneUserPayment = async ({id}: {id: number}) => {
         throw error
     }
 }
+
+export const ShippedPayment = async ({id}: {id: number}) => {
+    try {
+        const shipped = await ApiManager(`/user-payment/shipped/${id}`)
+        
+        return shipped.data
+    } catch (error) {
+        throw error
+    }
+}
