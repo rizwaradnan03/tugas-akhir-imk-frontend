@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Category from "./page/Category";
 import Home from "./page/Home";
 import Product from "./page/Product";
@@ -7,9 +7,9 @@ import Checkout from "./page/Checkout";
 import { Pay } from "./page/Pay";
 import Navbar from "./components/navbar";
 import { Toaster } from "react-hot-toast";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from "react";
-import Register from "./page/auth/Register"
+import Register from "./page/auth/Register";
 import { AdminDashboard } from "./page/admin/dashboard";
 import ProductList from "./page/admin/product/product-list";
 import ProductCreate from "./page/admin/product/product-create";
@@ -61,42 +61,60 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        <Route path="/admin/*" element={
-          <Routes>
-            <Route path="dashboard" element={<AdminDashboard />}></Route>
-
-            <Route path="category/*" element={
+        <Route
+          path="/admin/*"
+          element={
+            localStorage.getItem("access_token") ? (
               <Routes>
-                <Route index element={<CategoryList />} />
-                <Route path="create" element={<CategoryCreate />} />
-                <Route path=":id" element={<CategoryEdit />} />
-              </Routes>
-            } />
-            
-            <Route path="product/*" element={
-              <Routes>
-                <Route index element={<ProductList />} />
-                <Route path="create" element={<ProductCreate />} />
-                <Route path=":id" element={<ProductEdit />} />
-              </Routes>
-            } />
+                <Route path="dashboard" element={<AdminDashboard />} />
 
-            <Route path="checkout/*" element={
-              <Routes>
-                <Route index element={<AdminCheckout />} />
-                <Route path="detail/:id" element={<CheckoutDetail />} />
-              </Routes>
-            } />
+                <Route
+                  path="category/*"
+                  element={
+                    <Routes>
+                      <Route index element={<CategoryList />} />
+                      <Route path="create" element={<CategoryCreate />} />
+                      <Route path=":id" element={<CategoryEdit />} />
+                    </Routes>
+                  }
+                />
 
-            <Route path="account/*" element={
-              <Routes>
-                <Route index element={<AccountList />} />
-                <Route path="register" element={<RegisterCreate />} />
-              </Routes>
-            } />
-          </Routes>
-        } />
+                <Route
+                  path="product/*"
+                  element={
+                    <Routes>
+                      <Route index element={<ProductList />} />
+                      <Route path="create" element={<ProductCreate />} />
+                      <Route path=":id" element={<ProductEdit />} />
+                    </Routes>
+                  }
+                />
 
+                <Route
+                  path="checkout/*"
+                  element={
+                    <Routes>
+                      <Route index element={<AdminCheckout />} />
+                      <Route path="detail/:id" element={<CheckoutDetail />} />
+                    </Routes>
+                  }
+                />
+
+                <Route
+                  path="account/*"
+                  element={
+                    <Routes>
+                      <Route index element={<AccountList />} />
+                      <Route path="register" element={<RegisterCreate />} />
+                    </Routes>
+                  }
+                />
+              </Routes>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
       </Routes>
 
       <Toaster position="top-center" reverseOrder={false} />

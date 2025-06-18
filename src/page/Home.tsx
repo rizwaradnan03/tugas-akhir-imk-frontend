@@ -3,7 +3,7 @@ import { ProductInterface } from '@/interfaces/schema-interface';
 import { formatPrice } from '@/lib/price';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [items, setItems] = useState<ProductInterface[]>([]);

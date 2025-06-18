@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { ProductInterface } from '@/interfaces/schema-interface';
 
@@ -45,11 +45,11 @@ const Product = () => {
                   <th scope="row">{index + 1}</th>
                   <td>{item.id}</td>
                   <td>{item.title}</td>
-                  <td>{new Date(item.createdAt).toLocaleString()}</td>
-                  <td>{new Date(item.updatedAt).toLocaleString()}</td>
+                  <td>{new Date(item.created_at).toLocaleString()}</td>
+                  <td>{new Date(item.updated_at).toLocaleString()}</td>
                   <td>{item.image}</td>
                   <td>{item.price}</td>
-                  <td>{item.categoryId}</td>
+                  <td>{item.category_id}</td>
                 </tr>
               ))
             ) : (
