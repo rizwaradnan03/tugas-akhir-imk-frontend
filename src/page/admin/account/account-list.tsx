@@ -35,7 +35,6 @@ const AccountList = () => {
           <tr>
             <th>#</th>
             <th>Email</th>
-            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>

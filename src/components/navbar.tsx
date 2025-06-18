@@ -12,7 +12,7 @@ const MyNavbar = () => {
   return (
     <Navbar bg="light" expand="lg" className="shadow-sm">
       <Container>
-        <Navbar.Brand as={Link} to={localStorage.getItem("access_token") ? "/admin/dashboard" : "/"} className="fw-bold">
+        <Navbar.Brand as={Link} to="/" className="fw-bold">
           Beranda
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,6 +21,9 @@ const MyNavbar = () => {
           <Nav className="me-auto">
             {localStorage.getItem("access_token") && (
               <>
+                <NavLink as={Link} to="/admin/dashboard">
+                  Dashboard
+                </NavLink>
                 <NavLink as={Link} to="/admin/category">
                   Kategori
                 </NavLink>
@@ -30,18 +33,11 @@ const MyNavbar = () => {
                 <NavLink as={Link} to="/admin/account">
                   Pusat Akun
                 </NavLink>
+                <NavLink as={Link} to={"/admin/checkout"}>
+                  Checkout
+                </NavLink>
               </>
             )}
-            <NavLink
-              as={Link}
-              to={
-                localStorage.getItem("access_token")
-                  ? "/admin/checkout"
-                  : "/checkout"
-              }
-            >
-              Checkout
-            </NavLink>
           </Nav>
 
           <Nav className="align-items-center ms-auto">
